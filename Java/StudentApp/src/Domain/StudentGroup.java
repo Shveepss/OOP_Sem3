@@ -29,14 +29,21 @@ public class StudentGroup implements Comparable<StudentGroup> {
 
     @Override
     public String toString() {
-        return "StudentGroup{" +
-                "group=" + group +
-                ", idGroup=" + idGroup +
+        return "StudentGroup{idGroup=" + idGroup +
+                ", numberOfStudents=" + group.size() +
+                ", students=" + group +
                 '}';
     }
 
     @Override
     public int compareTo(StudentGroup otherGroup) {
-        return Integer.compare(this.group.size(), otherGroup.group.size());
+        // Сначала сравниваем по количеству студентов в группе
+        int compareBySize = Integer.compare(this.group.size(), otherGroup.group.size());
+        if (compareBySize != 0) {
+            return compareBySize;
+        }
+        // Если количество студентов одинаково, сравниваем по идентификатору группы
+        return Integer.compare(this.idGroup, otherGroup.idGroup);
     }
+
 }

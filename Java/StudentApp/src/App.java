@@ -4,6 +4,7 @@ import java.util.List;
 
 import Domain.Student;
 import Domain.StudentGroup;
+import Domain.StudentSteam;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -53,12 +54,17 @@ public class App {
         // Выводим отсортированные группы студентов в консоль
 
         for (StudentGroup group : studentGroups) {
+            System.out.println(group);
                 System.out.println("Группа №" + group.getIdGroup());
             for (Student std : group.getGroup()) {
                 System.out.println(std);
             }
             System.out.println("=========================================================");
         }
+        StudentSteam studentSteam = new StudentSteam(1, studentGroups);
+
+        // Выводим информацию о потоке студентов
+        System.out.println(studentSteam);
 
     }
 }

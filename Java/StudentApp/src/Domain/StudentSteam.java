@@ -29,6 +29,21 @@ public class StudentSteam implements Iterable<StudentGroup> {
     }
 
     @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("StudentStream{streamNumber=").append(streamNumber);
+        sb.append(", numberOfGroups=").append(studentGroups.size());
+        sb.append(", studentGroups=[");
+        for (StudentGroup group : studentGroups) {
+            sb.append("{groupId=").append(group.getIdGroup());
+            sb.append(", numberOfStudents=").append(group.getGroup().size());
+            sb.append(", students=").append(group.getGroup()).append("}, ");
+        }
+        sb.append("]}");
+        return sb.toString();
+    }
+
+    @Override
     public Iterator<StudentGroup> iterator() {
         return studentGroups.iterator();
     }
